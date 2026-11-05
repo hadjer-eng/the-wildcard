@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wild Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="fc fc1">♠</div>
+    <div class="fc fc2 red">♥</div>
+    <div class="fc fc3 red">♦</div>
+    <div class="fc fc4">♣</div>
+
+    <!-- SCREEN 1: intro -->
+    <main class="screen" id="intro">
+        <p class="eyebrow">NOW YOU SEE IT…</p>
+        <h1>THE <span>WILD CARD</span></h1>
+        <div class="line"></div>
+        <p class="subtitle">Leave your choice to fate</p>
+        <button id="startBtn" class="btn main" type="button">STEP INTO THE SHOW</button>
+        <p class="footer">NOW YOU SEE ME. NOW YOU DON’T.</p>
+    </main>
+
+    <!-- SCREEN 2: add the accounts -->
+    <main class="screen hidden" id="setup">
+        <h1 class="page-title">INFINITY SETS THE STAGE</h1>
+            <h1 class="page-title">you make the magic</h1>
+        <p class="subtitle">
+    Enter the names 
+</p>
+<p class="subtitle">
+    Let the impossible unfold.
+</p>
+        <div class="line gap"></div>
+
+        <textarea id="accounts" rows="7" spellcheck="false" placeholder="@account_one&#10;@account_two&#10;instagram.com/account_three"></textarea>
+
+        <input type="file" id="csvFile" accept=".csv,.txt" class="hidden">
+
+        <p id="count" class="count">0 accounts</p>
+        <p id="message" class="message"></p>
+
+        <div class="row">
+            <button id="importBtn" class="btn" type="button">Import CSV</button>
+            <button id="drawBtn" class="btn main" type="button">Shuffle the deck</button>
+        </div>
+    </main>
+
+    <!-- SCREEN 3: the reveal -->
+    <main class="screen hidden" id="stage">
+        <p id="stageText" class="stage-text"></p>
+        <div class="deck" id="deck"></div>
+
+        <div class="row hidden" id="actions">
+            <button id="againBtn" class="btn main" type="button">Shuffle again</button>
+            <button id="backBtn" class="btn" type="button">Edit the deck</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

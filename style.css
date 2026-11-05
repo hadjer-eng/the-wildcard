@@ -1,0 +1,325 @@
+/* ---------- Colors: change them here ----------
+   Burgundy + gold version:
+   --bg-dark: #030203;  --bg-mid: #19050c;  --glow: #390714;
+   --accent: #d8b45a;   --soft: #c58b98;    --text: #f3e9e7;
+   --muted: #cbb9bd;    --suit-red: #b3203f;
+------------------------------------------------ */
+:root {
+    --bg-dark: #020a06;
+    --bg-mid: #06180f;
+    --glow: #0f5132;
+    --accent: #3ddc84;
+    --soft: #9be7b8;
+    --text: #eafff2;
+    --muted: #cfeedd;
+    --suit-red: #d1344f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(ellipse at 50% 45%, var(--glow), transparent 55%),
+        linear-gradient(135deg, var(--bg-dark) 5%, var(--bg-mid) 50%, var(--bg-dark) 100%);
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.screen {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    padding: 40px 20px 70px;
+    animation: appear 0.9s ease both;
+}
+
+/* ---------- Floating cards in the background ---------- */
+.fc {
+    position: fixed;
+    z-index: -1;
+    width: 90px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 38px;
+    color: var(--muted);
+    opacity: 0.45;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    background: linear-gradient(160deg, var(--bg-mid), var(--bg-dark));
+    animation: drift 14s ease-in-out infinite alternate;
+}
+
+.fc.red { color: var(--suit-red); }
+.fc1 { left: 7%;   top: 12%;    --r: -18deg; }
+.fc2 { right: 8%;  top: 20%;    --r: 14deg;  animation-delay: -4s; }
+.fc3 { left: 12%;  bottom: 12%; --r: 10deg;  animation-delay: -8s; }
+.fc4 { right: 10%; bottom: 10%; --r: -12deg; animation-delay: -2s; }
+
+@keyframes drift {
+    from { transform: translateY(0) rotate(var(--r)); }
+    to   { transform: translateY(-30px) rotate(calc(var(--r) + 8deg)); }
+}
+
+/* ---------- Text ---------- */
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 6px;
+    color: var(--accent);
+    margin-bottom: 26px;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(42px, 11vw, 80px);
+    letter-spacing: 4px;
+    line-height: 1.1;
+    text-shadow: 0 0 35px rgba(61, 220, 132, 0.25);
+}
+
+h1 span { color: var(--accent); }
+
+.page-title {
+    font-size: clamp(34px, 8vw, 52px);
+}
+
+.line {
+    width: 65px;
+    height: 1px;
+    margin: 26px auto 20px;
+    background: linear-gradient(to right, transparent, var(--accent), transparent);
+}
+
+.line.gap {
+    margin-bottom: 34px;
+}
+
+.subtitle {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 24px;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 36px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 22px;
+    left: 15px;
+    right: 15px;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #5f8a72;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    padding: 15px 24px;
+    background: transparent;
+    color: var(--text);
+    border: 1px solid rgba(61, 220, 132, 0.55);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    cursor: pointer;
+    transition: 0.35s ease;
+}
+
+.btn.main {
+    background: var(--accent);
+    color: #04130b;
+    font-weight: 400;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(61, 220, 132, 0.35);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: wait;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--soft);
+    outline-offset: 3px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+}
+/* ---------- Form ---------- */
+textarea {
+    width: 100%;
+    padding: 16px;
+    background: rgba(2, 10, 6, 0.7);
+    border: 1px solid rgba(61, 220, 132, 0.4);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    resize: vertical;
+}
+
+textarea::placeholder { color: #5f8a72; }
+
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 28px rgba(61, 220, 132, 0.25);
+}
+
+.count {
+    margin: 14px 0 4px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--soft);
+}
+
+.message {
+    min-height: 22px;
+    margin-bottom: 14px;
+    font-size: 13px;
+}
+
+.message.error { color: #ff9aa8; }
+.message.ok    { color: var(--soft); }
+
+/* ---------- The deck ---------- */
+.stage-text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 28px;
+    color: var(--muted);
+    margin-bottom: 40px;
+    min-height: 36px;
+}
+
+.deck {
+    position: relative;
+    width: 190px;
+    height: 275px;
+    margin: 0 auto 55px;
+    perspective: 1000px;
+}
+
+.pcard {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transform: translateX(calc((var(--i) - 2) * 28px)) rotate(calc((var(--i) - 2) * 8deg));
+    transition: transform 0.9s cubic-bezier(.3, .7, .2, 1), opacity 0.6s ease;
+}
+
+.face {
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    backface-visibility: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.face.back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 54px;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    background:
+        repeating-linear-gradient(45deg, rgba(61, 220, 132, 0.1) 0 6px, transparent 6px 12px),
+        linear-gradient(160deg, var(--glow), var(--bg-dark));
+}
+
+.face.front {
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 14px;
+    background: #f1f1ef;
+    color: #14080b;
+    border: 2px solid var(--accent);
+}
+
+.face.front.red { color: #b3203f; }
+
+.corner {
+    position: absolute;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 28px;
+    line-height: 1;
+}
+
+.corner.tl { top: 10px; left: 14px; }
+.corner.br { bottom: 10px; right: 14px; transform: rotate(180deg); }
+
+.pcard-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 600;
+    font-size: 24px;
+    word-break: break-all;
+}
+
+/* shuffle: the cards cross over each other */
+.deck.shuffling .pcard {
+    animation: shuffle 2.2s ease-in-out both;
+    animation-delay: calc(var(--i) * 60ms);
+}
+
+@keyframes shuffle {
+    0%   { transform: translateX(calc((var(--i) - 2) * 28px)) rotate(calc((var(--i) - 2) * 8deg)); }
+    35%  { transform: translateX(0) rotate(0deg); }
+    70%  { transform: translateX(calc((2 - var(--i)) * 52px)) rotate(calc((2 - var(--i)) * 14deg)); }
+    100% { transform: translateX(calc((var(--i) - 2) * 28px)) rotate(calc((var(--i) - 2) * 8deg)); }
+}
+
+/* pick: one card rises and flips, the others vanish */
+.deck.picked .pcard {
+    opacity: 0;
+    transform: translateX(calc((var(--i) - 2) * 90px)) translateY(50px) rotate(calc((var(--i) - 2) * 16deg));
+}
+
+.deck.picked .pcard.chosen {
+    opacity: 1;
+    z-index: 5;
+    transform: translateY(-6px) scale(1.12) rotateY(180deg);
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(15px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+    .fc { width: 62px; height: 90px; font-size: 26px; opacity: 0.3; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fc { animation: none; }
+    .pcard, .face { transition: none; }
+}
